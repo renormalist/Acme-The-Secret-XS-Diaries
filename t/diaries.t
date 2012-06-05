@@ -1,10 +1,10 @@
 #! /usr/bin/perl
 
-use Acme::The::Secret::XS::Diaries;
+use Acme::The::Secret::XS::Diaries ":all";
 
 use Test::More;
 
-Acme::The::Secret::XS::Diaries::hello();
+hello();
 
 ok(1);
 done_testing;
