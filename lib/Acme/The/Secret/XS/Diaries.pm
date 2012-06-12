@@ -6,10 +6,14 @@ package Acme::The::Secret::XS::Diaries;
 use Sub::Exporter
  -setup => {
             exports => [
-                        qw(hello),
+                        qw( hello
+                            is_even
+                         ),
                        ],
             groups => {
-                       all => [ qw(hello) ],
+                       all => [ qw(hello
+                                   is_even
+                                 ) ],
                       },
            };
 
