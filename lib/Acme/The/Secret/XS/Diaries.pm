@@ -7,11 +7,13 @@ use Sub::Exporter
  -setup => {
             exports => [
                         qw( hello
+                            hello_to
                             is_even
                          ),
                        ],
             groups => {
                        all => [ qw(hello
+                                   hello_to
                                    is_even
                                  ) ],
                       },

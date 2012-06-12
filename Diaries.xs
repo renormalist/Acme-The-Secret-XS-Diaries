@@ -11,6 +11,13 @@ hello()
         CODE:
                 printf("Hello, world!\n");
 
+void
+hello_to(someone)
+        const char * someone
+        CODE:
+                printf("Hello, %s!\n", someone);
+
+
 int
 is_even(input)
         int input
