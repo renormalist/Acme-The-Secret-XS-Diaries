@@ -8,12 +8,14 @@ use Sub::Exporter
             exports => [
                         qw( hello
                             hello_to
+                            hello_to_persons_arrayref
                             is_even
                          ),
                        ],
             groups => {
                        all => [ qw(hello
                                    hello_to
+                                   hello_to_persons_arrayref
                                    is_even
                                  ) ],
                       },
