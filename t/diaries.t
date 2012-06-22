@@ -18,6 +18,7 @@ my $hashref = {
               };
 my $arrayref = [keys %$hashref];
 hello_to_persons_arrayref($arrayref);
+hello_to_persons_hashref($hashref);
 
 ok(1);
 done_testing;

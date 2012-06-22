@@ -9,6 +9,7 @@ use Sub::Exporter
                         qw( hello
                             hello_to
                             hello_to_persons_arrayref
+                            hello_to_persons_hashref
                             is_even
                          ),
                        ],
@@ -16,6 +17,7 @@ use Sub::Exporter
                        all => [ qw(hello
                                    hello_to
                                    hello_to_persons_arrayref
+                                   hello_to_persons_hashref
                                    is_even
                                  ) ],
                       },

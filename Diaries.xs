@@ -53,3 +53,28 @@ hello_to_persons_arrayref(persons)
                        }
                     }
                 }
+
+void
+hello_to_persons_hashref(persons)
+        HV *persons;
+        PREINIT:
+                SV*    value;
+                char*  key;
+                I32    keylen;
+                STRLEN str_len;
+                char * el_str;
+                I32    el_int;
+        PPCODE:
+                hv_iterinit(persons);
+                printf("Hello, unknown amount of persons:\n");
+                while (value = hv_iternextsv(persons, &key, &keylen)) {
+                      if (SvPOK(value)) {
+                         el_str = SvPV(value, str_len);
+                         printf("  Hello, %s %s!\n", el_str, key);
+                      } else if (SvIOK(value)) {
+                         el_int = SvIV(value);
+                         printf("  Hello, %d %s!\n", el_int, key);
+                      } else {
+                         printf("  (ignored) %s\n", key);
+                      }
+                }
