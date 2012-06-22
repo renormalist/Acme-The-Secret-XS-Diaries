@@ -78,3 +78,36 @@ hello_to_persons_hashref(persons)
                          printf("  (ignored) %s\n", key);
                       }
                 }
+
+void
+hello_to_persons_hashref_by_keys(persons, keys)
+        HV *persons;
+        AV *keys;
+        PREINIT:
+                I32    i;
+                I32    len;
+                SV**   key_el;
+                SV**   value;
+                char*  key;
+                STRLEN str_len;
+                char * el_str;
+                I32    el_int;
+        PPCODE:
+                len = av_len(keys);
+                printf("Hello, %d persons:\n", len+1);
+                for (i = 0; i <= len; i++) {
+                    key_el = av_fetch(keys, i, 0);
+                    if (key_el != NULL && SvPOK(*key_el)) {
+                          key = SvPV(*key_el, str_len);
+                          value = hv_fetch(persons, key, strlen(key), 0);
+                          if (SvPOK(*value)) {
+                             el_str = SvPV(*value, str_len);
+                             printf("  Hello, %s %s!\n", el_str, key);
+                          } else if (SvIOK(*value)) {
+                             el_int = SvIV(*value);
+                             printf("  Hello, %d %s!\n", el_int, key);
+                          } else {
+                             printf("  (ignored) %s\n", key);
+                          }
+                    }
+                }

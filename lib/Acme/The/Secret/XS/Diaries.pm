@@ -10,6 +10,7 @@ use Sub::Exporter
                             hello_to
                             hello_to_persons_arrayref
                             hello_to_persons_hashref
+                            hello_to_persons_hashref_by_keys
                             is_even
                          ),
                        ],
@@ -18,6 +19,7 @@ use Sub::Exporter
                                    hello_to
                                    hello_to_persons_arrayref
                                    hello_to_persons_hashref
+                                   hello_to_persons_hashref_by_keys
                                    is_even
                                  ) ],
                       },
