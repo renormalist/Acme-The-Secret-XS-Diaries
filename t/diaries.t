@@ -3,6 +3,7 @@
 use Acme::The::Secret::XS::Diaries ":all";
 
 use Test::More;
+use Test::Deep qw(cmp_deeply);
 
 hello();
 is(is_even(0), 1, "0 -> even");
@@ -20,6 +21,7 @@ my $arrayref = [keys %$hashref];
 hello_to_persons_arrayref($arrayref);
 hello_to_persons_hashref($hashref);
 hello_to_persons_hashref_by_keys($hashref, [keys %$hashref]);
+cmp_deeply([get_5_ints()], [11,33,55,77,99], "got 5 integers");
 
-ok(1);
+ok(1, "survived");
 done_testing;

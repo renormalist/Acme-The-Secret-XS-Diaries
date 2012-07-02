@@ -111,3 +111,12 @@ hello_to_persons_hashref_by_keys(persons, keys)
                           }
                     }
                 }
+
+void
+get_5_ints()
+        PPCODE:
+                mXPUSHi(11);
+                mXPUSHi(33);
+                mXPUSHi(55);
+                mXPUSHi(77);
+                mXPUSHi(99);

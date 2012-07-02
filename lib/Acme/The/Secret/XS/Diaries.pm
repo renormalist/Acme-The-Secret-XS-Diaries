@@ -12,6 +12,7 @@ use Sub::Exporter
                             hello_to_persons_hashref
                             hello_to_persons_hashref_by_keys
                             is_even
+                            get_5_ints
                          ),
                        ],
             groups => {
@@ -21,6 +22,7 @@ use Sub::Exporter
                                    hello_to_persons_hashref
                                    hello_to_persons_hashref_by_keys
                                    is_even
+                                   get_5_ints
                                  ) ],
                       },
            };
