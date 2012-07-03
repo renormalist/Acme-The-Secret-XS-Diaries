@@ -22,6 +22,7 @@ hello_to_persons_arrayref($arrayref);
 hello_to_persons_hashref($hashref);
 hello_to_persons_hashref_by_keys($hashref, [keys %$hashref]);
 cmp_deeply([get_5_ints()], [11,33,55,77,99], "got 5 integers");
+cmp_deeply([get_2_strings()], ["AFFE", "ZOMTEC"], "got 2 strings");
 
 ok(1, "survived");
 done_testing;

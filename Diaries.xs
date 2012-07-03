@@ -120,3 +120,13 @@ get_5_ints()
                 mXPUSHi(55);
                 mXPUSHi(77);
                 mXPUSHi(99);
+
+void
+get_2_strings()
+        INIT:
+                char * txt;
+        PPCODE:
+                txt = "AFFE";
+                mXPUSHp(txt, strlen(txt));
+                txt = "ZOMTEC";
+                mXPUSHp(txt, strlen(txt));
