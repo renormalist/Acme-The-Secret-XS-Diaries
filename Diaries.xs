@@ -130,3 +130,24 @@ get_2_strings()
                 mXPUSHp(txt, strlen(txt));
                 txt = "ZOMTEC";
                 mXPUSHp(txt, strlen(txt));
+
+void
+get_5_ints_faster()
+        PPCODE:
+                EXTEND(SP,5);
+                mPUSHi(11);
+                mPUSHi(33);
+                mPUSHi(55);
+                mPUSHi(77);
+                mPUSHi(99);
+
+void
+get_2_strings_faster()
+        INIT:
+                char * txt;
+        PPCODE:
+                EXTEND(SP,2);
+                txt = "AFFE";
+                mPUSHp(txt, strlen(txt));
+                txt = "ZOMTEC";
+                mPUSHp(txt, strlen(txt));

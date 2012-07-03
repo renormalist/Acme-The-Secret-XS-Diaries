@@ -13,7 +13,9 @@ use Sub::Exporter
                             hello_to_persons_hashref_by_keys
                             is_even
                             get_5_ints
+                            get_5_ints_faster
                             get_2_strings
+                            get_2_strings_faster
                          ),
                        ],
             groups => {
@@ -24,7 +26,9 @@ use Sub::Exporter
                                    hello_to_persons_hashref_by_keys
                                    is_even
                                    get_5_ints
+                                   get_5_ints_faster
                                    get_2_strings
+                                   get_2_strings_faster
                                  ) ],
                       },
            };
