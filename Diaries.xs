@@ -151,3 +151,19 @@ get_2_strings_faster()
                 mPUSHp(txt, strlen(txt));
                 txt = "ZOMTEC";
                 mPUSHp(txt, strlen(txt));
+
+void
+grep_even_integers(...)
+        INIT:
+                int i;
+                SV* el;
+                int value;
+        PPCODE:
+                for (i = 0; i < items; i++) {
+                    el = ST(i);
+                    if (SvIOK(el) || looks_like_number(el)) {
+                       value = SvIV(el);
+                       if (value % 2 == 0)
+                          mXPUSHs(SvREFCNT_inc(el));
+                    }
+                }

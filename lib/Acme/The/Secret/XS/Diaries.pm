@@ -16,6 +16,7 @@ use Sub::Exporter
                             get_5_ints_faster
                             get_2_strings
                             get_2_strings_faster
+                            grep_even_integers
                          ),
                        ],
             groups => {
@@ -29,6 +30,7 @@ use Sub::Exporter
                                    get_5_ints_faster
                                    get_2_strings
                                    get_2_strings_faster
+                                   grep_even_integers
                                  ) ],
                       },
            };

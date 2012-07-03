@@ -4,6 +4,7 @@ use Acme::The::Secret::XS::Diaries ":all";
 
 use Test::More;
 use Test::Deep qw(cmp_deeply);
+use Scalar::Util qw(looks_like_number);
 
 hello();
 is(is_even(0), 1, "0 -> even");
@@ -25,6 +26,11 @@ cmp_deeply([get_5_ints()], [11,33,55,77,99], "got 5 integers");
 cmp_deeply([get_2_strings()], ["AFFE", "ZOMTEC"], "got 2 strings");
 cmp_deeply([get_5_ints_faster()], [11,33,55,77,99], "got 5 integers faster");
 cmp_deeply([get_2_strings_faster()], ["AFFE", "ZOMTEC"], "got 2 strings faster");
+my @list = (1, 2, 3, "four", "five", 6.0, 6.1, 7, "8", 90, 0102 );
+my @evens_xs = grep_even_integers @list ;
+my @evens_pl = grep { looks_like_number $_ and $_ % 2 == 0 } @list;
+cmp_deeply(\@evens_xs, [2, 6.0, 6.1, 8, 90, 0102], "grep even integers - XS"); # 6.1 is in as test uses int downgrade
+cmp_deeply(\@evens_pl, \@evens_xs, "grep even integers - Perl");
 
 ok(1, "survived");
 done_testing;
