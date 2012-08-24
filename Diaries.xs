@@ -167,3 +167,56 @@ grep_even_integers(...)
                           mXPUSHs(SvREFCNT_inc(el));
                     }
                 }
+
+void
+fib_overkill(n)
+        int n;
+        INIT:
+                int f1;
+                int f2;
+        PPCODE:
+                if (n < 2) {
+                   mXPUSHi(1);
+                } else {
+
+                   /* -------------------- f2 = fib(n-2) ----------------- */
+                   ENTER;
+                   SAVETMPS;
+                   PUSHMARK(SP);
+
+                   mXPUSHi(n-2);
+
+                   PUTBACK;
+
+                   call_pv("Acme::The::Secret::XS::Diaries::fib_overkill", 0);
+
+                   SPAGAIN;
+
+                   f2 = POPi;
+
+                   PUTBACK;
+                   FREETMPS;
+                   LEAVE;
+
+                   /* -------------------- f1 = fib(n-1) ----------------- */
+                   ENTER;
+                   SAVETMPS;
+                   PUSHMARK(SP);
+
+                   mXPUSHi(n-1);
+
+                   PUTBACK;
+
+                   call_pv("Acme::The::Secret::XS::Diaries::fib_overkill", 0);
+
+                   SPAGAIN;
+
+                   f1 = POPi;
+
+                   PUTBACK;
+                   FREETMPS;
+                   LEAVE;
+
+                   /* -------------------- f2 + f1 ----------------- */
+                   mXPUSHi(f2+f1);
+                }

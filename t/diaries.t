@@ -42,7 +42,9 @@ cmp_deeply(\@evens_pl, \@evens_xs, "grep even integers - Perl");
 my $n = 32;
 my @fibs = ( 1, 1, 2, 3, 5, 8, 13, 21, 34 );
 is(fib_pl($_),       $fibs[$_], "fib_pl $_")       foreach 0..$#fibs;
+is(fib_overkill($_), $fibs[$_], "fib_overkill $_") foreach 0..$#fibs;
 diag "time fib_pl($n):       ".timeit(1, "fib_pl($n)")->[1];
+diag "time fib_overkill($n): ".timeit(1, "fib_overkill($n)")->[1];
 
 ok(1, "survived");
 done_testing;
