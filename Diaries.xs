@@ -4,6 +4,13 @@
 
 #include "ppport.h"
 
+static int fib(n) {
+    if (n < 2)
+       return 1;
+    else
+       return fib(n-2) + fib(n-1);
+}
+
 MODULE = Acme::The::Secret::XS::Diaries       PACKAGE = Acme::The::Secret::XS::Diaries
 
 void
@@ -220,3 +227,11 @@ fib_overkill(n)
                    /* -------------------- f2 + f1 ----------------- */
                    mXPUSHi(f2+f1);
                 }
+
+int
+fib(n)
+        int n;
+        CODE:
+                RETVAL = fib(n);
+        OUTPUT:
+                RETVAL

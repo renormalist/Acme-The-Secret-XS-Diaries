@@ -18,6 +18,7 @@ use Sub::Exporter
                             get_2_strings_faster
                             grep_even_integers
                             fib_overkill
+                            fib
                          ),
                        ],
             groups => {
@@ -33,6 +34,7 @@ use Sub::Exporter
                                    get_2_strings_faster
                                    grep_even_integers
                                    fib_overkill
+                                   fib
                                  ) ],
                       },
            };
